@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
 
@@ -41,12 +43,14 @@ class HomeController extends GetxController {
 
   getAudio() async {
     var url =
-        "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3";
+        "http://codeskulptor-demos.commondatastorage.googleapis.com/descent/background%20music.mp3";
+    // "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3";
+
     if (_isPlaying.value) {
       var res = await audioPlayer.pause();
       _isPlaying.value = false;
     } else {
-      var res = await audioPlayer.play(url, isLocal: true);
+      var res = await audioPlayer.play(url, isLocal: false);
       if (res == 1) {
         _isPlaying.value = true;
       }
